@@ -6,7 +6,7 @@
 <title>数学教学岗申请追踪器</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* Layout idea: an application ledger. One catalog, five lenses (table, board, timeline, due, new); deadline and eligibility are always the first things the eye meets. */
 :root{
@@ -133,6 +133,78 @@ footer{color:var(--muted);font-size:12.5px;max-width:90ch}
   .dlg dl{grid-template-columns:1fr}
   .tl-row{grid-template-columns:150px 1fr}
 }
+/* ---- Modern theme (overrides) ---- */
+:root{
+  --bg:#eef3ec; --surface:#fdfdfa; --field:#ffffff; --ink:#1b201c; --muted:#66716a; --line:#e2e8de;
+  --accent:#3f7d57; --accent-soft:#e6f1e7;
+  --good:#2f7347; --good-soft:#e3f1e5;
+  --warn:#9a6a14; --warn-soft:#fbf1dc;
+  --bad:#b2463f; --bad-soft:#fbe9e6;
+  --neutral-soft:#f3f6f1;
+  --body:"Inter","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --display:var(--body); --mono:var(--body);
+  --radius:12px; --radius-sm:8px;
+  --shadow:0 1px 2px rgba(27,45,32,.04),0 4px 16px rgba(27,45,32,.05);
+}
+body{font-size:14px;line-height:1.6;letter-spacing:.005em;-webkit-font-smoothing:antialiased;font-feature-settings:"cv11","ss01";accent-color:var(--accent)}
+.wrap{max-width:1240px;padding:36px 28px 110px;gap:20px}
+header{align-items:flex-end;gap:12px 24px}
+header h1{font-size:28px;font-weight:700;letter-spacing:-.01em;margin:0 0 8px}
+header p{font-size:14px;line-height:1.7;max-width:76ch}
+#saveState{font-size:12px;background:var(--surface);border:1px solid var(--line);padding:4px 12px;border-radius:999px}
+.stats{gap:14px}
+.stat{border:1px solid var(--line);border-radius:var(--radius);padding:16px 20px;box-shadow:var(--shadow);display:flex;flex-direction:column-reverse;gap:2px}
+.stat b{font-size:28px;font-weight:650;letter-spacing:-.02em;line-height:1.2}
+.stat span{font-size:12.5px;font-weight:500}
+.stat:nth-child(2) b{color:var(--good)}
+.stat:nth-child(3) b{color:var(--warn)}
+nav.tabs{border:1px solid var(--line);background:var(--surface);border-radius:var(--radius);padding:5px;gap:2px;align-items:center;box-shadow:var(--shadow)}
+nav.tabs a{border:0;border-radius:var(--radius-sm);padding:7px 16px;font-size:14px;color:var(--muted);transition:background .15s,color .15s}
+nav.tabs a:hover{background:var(--neutral-soft);color:var(--ink)}
+nav.tabs a.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.btn{border-radius:var(--radius-sm);padding:8px 16px;font-weight:600;color:#fff;transition:filter .15s}
+.btn:hover{filter:brightness(1.07)}
+.btn.sm{padding:7px 14px;font-size:13px}
+.btn.ghost{background:var(--surface);color:var(--accent);border:1px solid var(--line)}
+.filters{border-radius:var(--radius);padding:16px 18px;gap:12px 14px;box-shadow:var(--shadow)}
+.field{gap:6px;font-size:12px;font-weight:500}
+input[type=search],input[type=text],input[type=date],input[type=url],select,textarea{font-size:13.5px;border:1px solid #d9e1d5;border-radius:var(--radius-sm);padding:7px 10px;min-height:36px;transition:border-color .15s,box-shadow .15s}
+select{padding-right:6px;cursor:pointer}
+input:hover,select:hover,textarea:hover{border-color:#c3cfbf}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(63,125,87,.15)}
+input[type=checkbox]{width:16px;height:16px;cursor:pointer}
+label.check{font-size:13.5px;padding-bottom:8px}
+#count{font-size:13px}
+.legend{font-size:12.5px;gap:8px 16px;align-items:center}
+.pill{font-size:12px;font-weight:600;padding:3px 9px;border-radius:6px;line-height:1.45}
+.pill.unv{border:1px dashed #b5c0b0}
+.tablebox{border-radius:var(--radius);box-shadow:var(--shadow)}
+th,td{padding:13px 14px;border-bottom:1px solid #edf1ea}
+td{font-size:13.5px}
+th{font-size:12.5px;font-weight:600;background:#f6f8f4;position:sticky;top:0;z-index:1}
+.sortbtn{font-weight:600}
+tbody tr{transition:background .12s}
+tbody tr:hover td{background:#f7faf5}
+tr.strongrow td:first-child{box-shadow:inset 3px 0 0 var(--good)}
+td .t{font-size:14px;font-weight:600;line-height:1.4}
+td small{font-size:12.5px;margin-top:2px;line-height:1.5}
+.mono{font-size:13.5px;font-weight:500}
+.col{border-radius:var(--radius);padding:10px;background:#e7eee4}
+.col h3{font-size:13.5px;padding:2px 4px}
+.card{border-radius:10px;padding:12px 14px;box-shadow:0 1px 2px rgba(27,45,32,.05);gap:6px}
+.card.strong{border-left:3px solid var(--good)}
+.tl,.item,.empty{border-radius:var(--radius);box-shadow:var(--shadow)}
+.tl{padding:16px 18px}
+.item{padding:14px 18px}
+.item.strong{border-left:3px solid var(--good)}
+h2.sec{font-size:17px;font-weight:650;margin:14px 0 4px}
+dialog{border-radius:16px;border:0;box-shadow:0 24px 64px rgba(20,35,25,.22)}
+dialog::backdrop{background:rgba(20,35,25,.35);backdrop-filter:blur(2px)}
+.dlg{padding:24px 26px;gap:14px}
+.dlg h2{font-size:21px;font-weight:700}
+#cmpbar{box-shadow:0 -4px 20px rgba(27,45,32,.08)}
+footer{font-size:12.5px;line-height:1.7}
+@media (max-width:700px){ .wrap{padding:22px 14px 100px} header h1{font-size:23px} nav.tabs{overflow-x:auto;flex-wrap:nowrap} }
 </style>
 </head>
 <body>
